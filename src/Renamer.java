@@ -88,16 +88,15 @@ public class Renamer extends JFrame implements ActionListener
             for (int i = 0 ; i < fileNames.length ; i++ )
             {
 
-                if(files.get(i).toString().contains(rmvPart))
+                if(files.get(i).getName().contains(rmvPart))
                 {
-                   newName = files.get(i).toString();
+                   newName = files.get(i).getName();
                    newName = newName.replace(rmvPart,"");
-                   File renamedFile = new File(newName);
+                   File renamedFile = new File(files.get(i).getParent() + "\\" + newName);
                    files.get(i).renameTo(renamedFile);
                    counter ++ ;
                 }
             }
-            System.out.println(rmvPart + " " + newName);
             JOptionPane.showMessageDialog(this, "Переименовано файлов: " + counter,
             "Сообщение", JOptionPane.INFORMATION_MESSAGE); counter = 0;
         }
