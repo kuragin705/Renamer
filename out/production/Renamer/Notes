@@ -1,6 +1,30 @@
 1. Добавить диалоговое окно после нажатия "Убрать". Оно должно написать "Готово!" и вывести количество переименованных
 файлов, либо вывести сообщение о том, что файлов с такой частью названия в папке нет.
-2. Добавить кнопку выбора директории. Если директория не выбрана, то по умолчанию программа работает в той папке, где она расположена.
-3.
-4.
-5.
+2. Добавить кнопку выбора директории. Если директория не выбрана, то по умолчанию программа работает в той папке, где она расположена. ГОТОВО
+3. Добавить "чекбокс" для замены "_" на " ".
+4. Сделать условие для переменования только только имени файла в полном URL. Например /.../.../text1.txt.
+
+
+
+
+
+
+
+/*String[] fileNames = defaultDir.list();*/
+JCheckBox chk1 = new JCheckBox("Убрать символ '_'");
+console.add(chk1);
+chk1.setFocusable(false);
+
+ if(files.get(i).toString().contains("_") && chk1.isSelected())
+ {
+                    System.out.println("Имя файла с СИМВОЛОМ: "+ newName);
+                    newName = files.get(i).toString().replace(rmvPart,"");
+                    System.out.println("Имя файла с СИМВОЛОМ: "+ newName);
+                    newName = newName.replaceAll("_"," ");
+                    System.out.println("Имя файла с СИМВОЛОМ изменено: "+ newName);
+                    File renamedFile = new File(newName);
+                    System.out.println("Создан файл с новым именем: "+ renamedFile);
+                    files.get(i).renameTo(renamedFile);
+                    System.out.println("Перемеинование прошло: "+files.get(i).renameTo(renamedFile));
+                    System.out.println();
+ }
